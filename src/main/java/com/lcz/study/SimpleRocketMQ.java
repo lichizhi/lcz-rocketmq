@@ -87,6 +87,8 @@ public class SimpleRocketMQ {
         consumer.setNamesrvAddr("rocketmqA:9876");
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
 //        consumer.setMaxReconsumeTimes(2);
+//        consumer.setConsumeMessageBatchMaxSize(1); // 拉取之后，交付给api消费的数量
+        consumer.setPullBatchSize(1); // 从broker拉取消息的数量，每次拉取消息的数量
 
         // 订阅
         consumer.subscribe("wula", "*");
